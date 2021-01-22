@@ -17,6 +17,7 @@ $cursor = $collection->find(
     ]
 );
 
+
 foreach($cursor as $restaurant) {
    var_dump($restaurant);
 };
