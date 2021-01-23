@@ -13,14 +13,6 @@ echo $nimInput . "<br>";
 echo $namaInput . "<br>";
 echo $jurusanInput . "<br>";
 
-// $collection = (new MongoDB\Client)->test->users;
-
-// $insertOneResult = $collection->insertOne([
-//     'username' => 'admin',
-//     'email' => 'admin@example.com',
-//     'name' => 'Admin User',
-// ]);
-
 $insertOneResult = $collection->insertOne([
     'nim' => $nimInput,
     'namaLengkap' => $namaInput,
