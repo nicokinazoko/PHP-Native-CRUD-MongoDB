@@ -22,11 +22,16 @@
 
     <div class="container">
 
-    <a href="index.php" class="btn btn-outline-primary"">Home</a>
-    <a href="input_data.php" class="btn btn-outline-primary"">Input Data</a>
+        <a href="index.php" class="btn btn-outline-primary"">Home</a>
+    <a href=" input_data.php" class="btn btn-outline-primary"">Input Data</a>
 
-  <br>
-  <br>
+    <br>
+    <br>
+
+    <?php
+    require '../config.php';
+    $mahasiswa = $collection->find([]);
+    ?>
 
     <div class=" table-responsive">
             <table class="table table-hover">
@@ -41,17 +46,22 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>123170103</td>
-                        <td>Nico</td>
-                        <td>Teknik Informatika</td>
-                        <td>
+                <?php
+                    foreach($mahasiswa as $index => $mahasiswas){
+                    $index = $index + 1;
+                    echo "<tr>";
+                        echo "<td>". $index . "</td>";
+                        echo "<td>". $mahasiswas->nim . "</td>";
+                        echo "<td>". $mahasiswas->namaLengkap . "</td>";
+                        echo "<td>". $mahasiswas->jurusan . "</td>";
+                        echo '<td>
                             <a href="edit_data.php"><i class="fas fa-edit"></i></a>
                             <a href="#"><i class="fas fa-trash-alt"></i></a>
-                        </td>
+                        </td>';
 
-                    </tr>
+                    echo "</tr>";
+                    }
+                ?>
                 </tbody>
             </table>
     </div>
