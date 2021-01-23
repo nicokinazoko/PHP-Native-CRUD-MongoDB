@@ -23,38 +23,71 @@
     <div class="container">
 
         <a href="index.php" class="btn btn-outline-primary"">Home</a>
-        <a href="input_data.php" class="btn btn-outline-primary"">Input Data</a>
+        <a href=" input_data.php" class="btn btn-outline-primary"">Input Data</a>
 
         <br>
         <br>
 
-        <form method="GET" action="#">
+        <?php
+        require '../config.php';
+        $nimMahasiswa = $_GET['nim'];
+        $mahasiswa = $collection->findOne(['nim' => $nimMahasiswa]);
+        ?>
+
+        <form method="POST" action='../proses/update_data.php'>
             <div class=" mb-3">
                 <label for="inputNim" class="form-label">NIM</label>
-                <input type="text" class="form-control" id="inputNim" aria-describedby="inputNim"
-                name="inputNim">
+                <input type="text" class="form-control" id="inputNim" aria-describedby="inputNim" name="inputNim"
+                value='<?php echo $nimMahasiswa; ?>' disabled="disabled">
+                <input type="hidden" class="form-control" id="nimMahasiswa" aria-describedby="inputNim" name="nimMahasiswa"
+                value='<?php echo $nimMahasiswa; ?>'>
             </div>
 
             <div class="mb-3">
                 <label for="inputNama" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" id="inputNama"
-                name="inputNama">
+                <input type="text" class="form-control" id="inputNama" name="inputNama"
+                value='<?php echo $mahasiswa->namaLengkap; ?>'>
             </div>
 
             <div class="mb-3">
                 <label for="inputJurusan" class="form-label">Jurusan</label>
-                <select class="form-select" aria-label="inputJurusan" 
-                name="inputJurusan">
-                    <option value="Sistem Informasi">Sistem Informasi</option>
+                <select class="form-select" aria-label="inputJurusan" name="inputJurusan">
+                    <?php
+                    if($mahasiswa->jurusan == "Sistem Informasi"){
+                    echo '<option value="Sistem Informasi" selected>Sistem Informasi</option>    
                     <option value="Teknik Industri">Teknik Industri</option>
                     <option value="Teknik Informatika">Teknik Informatika</option>
-                    <option value="Teknik Kimia">Teknik Kimia</option>
+                    <option value="Teknik Kimia">Teknik Kimia</option>';
+                    }
+                    else
+                    if($mahasiswa->jurusan == "Teknik Industri"){
+                        echo '<option value="Sistem Informasi">Sistem Informasi</option>    
+                        <option value="Teknik Industri" selected>Teknik Industri</option>
+                        <option value="Teknik Informatika">Teknik Informatika</option>
+                        <option value="Teknik Kimia">Teknik Kimia</option>';
+                    }
+                    else
+                    if($mahasiswa->jurusan == "Teknik Informatika"){
+                        echo '<option value="Sistem Informasi">Sistem Informasi</option>    
+                        <option value="Teknik Industri" >Teknik Industri</option>
+                        <option value="Teknik Informatika" selected>Teknik Informatika</option>
+                        <option value="Teknik Kimia">Teknik Kimia</option>';
+                    }
+                    else
+                    if($mahasiswa->jurusan == "Teknik Kimia"){
+                        echo '<option value="Sistem Informasi">Sistem Informasi</option>    
+                        <option value="Teknik Industri">Teknik Industri</option>
+                        <option value="Teknik Informatika">Teknik Informatika</option>
+                        <option value="Teknik Kimia" selected>Teknik Kimia</option>';
+                    }
+
+                    ?>
                 </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
-            
-        </form>
+
+            </form>
 
     </div>
 
