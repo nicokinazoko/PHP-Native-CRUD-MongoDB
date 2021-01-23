@@ -20,6 +20,7 @@
     <h2 style="text-align: center">Data Mahasiswa</h2>
     <br>
 
+
     <div class="container">
 
         <a href="index.php" class="btn btn-outline-primary"">Home</a>
@@ -41,7 +42,8 @@
                         <th>NIM</th>
                         <th>Nama</th>
                         <th>Jurusan</th>
-                        <th>Action</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
 
@@ -54,10 +56,13 @@
                         echo "<td>". $mahasiswas->nim . "</td>";
                         echo "<td>". $mahasiswas->namaLengkap . "</td>";
                         echo "<td>". $mahasiswas->jurusan . "</td>";
-                        echo '<td>
-                            <a href="edit_data.php"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash-alt"></i></a>
-                        </td>';
+                        echo '<td>';
+                        echo "<a href='edit_data.php?nim=".$mahasiswas->nim."'><i class='fas fa-edit'></i></a>";
+                        echo '</td>';
+                        echo '<td>';
+                        echo "<a href='../proses/delete_data.php?nim=".$mahasiswas->nim."'><i class='fas fa-trash-alt'></i></a>";
+                        echo '</td>';
+
 
                     echo "</tr>";
                     }
