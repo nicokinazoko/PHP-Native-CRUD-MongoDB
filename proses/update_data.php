@@ -8,10 +8,10 @@ $jurusanInput = $_POST['inputJurusan'];
 
 
 
-$mahasiswa = $collection->findOne(['nim' => $nimInput ]);
+$mahasiswa = $collection->findOne(['_id' => $nimInput ]);
 
 $updateMahasiswa = $collection->updateOne(
-    ['nim' => $nimInput],
+    ['_id' => $nimInput],
     ['$set' => 
     ['namaLengkap' => $namaInput,
     'jurusan' => $jurusanInput,]
