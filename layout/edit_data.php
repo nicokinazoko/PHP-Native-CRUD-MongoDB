@@ -31,7 +31,7 @@
         <?php
         require '../config.php';
         $nimMahasiswa = $_GET['nim'];
-        $mahasiswa = $collection->findOne(['nim' => $nimMahasiswa]);
+        $mahasiswa = $collection->findOne(['_id' => $nimMahasiswa]);
         ?>
 
         <form method="POST" action='../proses/update_data.php'>
