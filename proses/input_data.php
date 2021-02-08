@@ -14,7 +14,7 @@ echo $namaInput . "<br>";
 echo $jurusanInput . "<br>";
 
 $insertOneResult = $collection->insertOne([
-    'nim' => $nimInput,
+    '_id' => $nimInput,
     'namaLengkap' => $namaInput,
     'jurusan' => $jurusanInput,
 ]);
