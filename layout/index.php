@@ -53,14 +53,14 @@
                     $index = $index + 1;
                     echo "<tr>";
                         echo "<td>". $index . "</td>";
-                        echo "<td>". $mahasiswas->nim . "</td>";
+                        echo "<td>". $mahasiswas->_id . "</td>";
                         echo "<td>". $mahasiswas->namaLengkap . "</td>";
                         echo "<td>". $mahasiswas->jurusan . "</td>";
                         echo '<td>';
-                        echo "<a href='edit_data.php?nim=".$mahasiswas->nim."'><i class='fas fa-edit'></i></a>";
+                        echo "<a href='edit_data.php?nim=".$mahasiswas->_id."'><i class='fas fa-edit'></i></a>";
                         echo '</td>';
                         echo '<td>';
-                        echo "<a href='../proses/delete_data.php?nim=".$mahasiswas->nim."'><i class='fas fa-trash-alt'></i></a>";
+                        echo "<a href='../proses/delete_data.php?nim=".$mahasiswas->_id."'><i class='fas fa-trash-alt'></i></a>";
                         echo '</td>';
 
 
